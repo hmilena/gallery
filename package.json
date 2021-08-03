@@ -1,0 +1,40 @@
+{
+  "name": "simplegalery",
+  "version": "1.0.0",
+  "description": "simple yet useful gallery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel ./dev/index.html",
+    "build": "parcel build ./dev/index.html -d dist --public-url ./ --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmilena/gallery.git"
+  },
+  "keywords": [],
+  "author": "@hmilena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hmilena/gallery/issues"
+  },
+  "homepage": "https://github.com/hmilena/gallery#readme",
+  "watchreload": {
+    "files": "**/*.php",
+    "reloadDelay": 200
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "eslint": "^7.25.0",
+    "normalize.css": "^8.0.1",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-imagemin": "^4.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "parcel-plugin-watch-reload": "^1.0.3",
+    "sass": "^1.32.11"
+  },
+  "dependencies": {
+    "gallery.js": "^1.0.2"
+  }
+}

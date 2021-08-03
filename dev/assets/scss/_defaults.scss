@@ -1,0 +1,46 @@
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body { 
+  background-color: $primary-color;
+  font-family: $openSans;
+  font-size: $p;
+  &.modal-is-open {
+    overflow: hidden;
+  }
+}
+
+.container{
+  @include container(1240px);
+  padding: 0 15px;
+}
+
+p {
+  font-size: $p;
+  color: $text;
+  line-height: 1;
+}
+
+h1, h2, h3, h4, h5 { 
+  font-family: $openSans;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .main-content {
+    flex: 1;
+  }
+
+  footer {
+    flex-shrink: 0;
+    color: #668EB1;
+    text-align: center;
+    padding: 15px 0;
+  }
+}

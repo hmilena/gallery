@@ -1,0 +1,29 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+$openSans: 'Open Sans', sans-serif;
+
+//colors
+$primary-color: white;
+$text: #212121;
+$bordercolor: #70A6D5;
+
+//font sizes
+$p: 1em;
+
+//radius
+$imgradius: 5px;
+
+//transition
+$transdf: all .15s ease-in-out; //default
+
+/* #Media Queries
+================================================== */
+$breakpoints: (
+  'phones': 480px,
+  'smaller': 660px,
+  'small': 767px,
+  'medium': 992px,
+  'large': 1200px,
+  '2xlarge': 1500px
+) !default;
