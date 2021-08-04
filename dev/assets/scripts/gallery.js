@@ -50,7 +50,6 @@ function Gallery(gallery){
         //if there´s already a modal, stop from creating another one
         if( bd.querySelector('.modal') ) {
             
-
             //get the new fields img, h2 and p from the created modal
             const newImage = bd.querySelector('.modal').querySelector('img');
             const newTitle = bd.querySelector('.modal').querySelector('h2');
@@ -58,13 +57,15 @@ function Gallery(gallery){
             
             //replace its contents with the current image data
             newImage.src = `${el.style.backgroundImage.slice(4, -1).replace(/"/g, "")}`;
-            newTitle ? newTitle.textContent = el.dataset.title : "";
-            newDesc ? newDesc.textContent = el.dataset.description : "";
+            !newTitle ? "" : newTitle.textContent = el.dataset.title;
+            !newDesc ? "" : newDesc.textContent = el.dataset.description;
             
         } else {
             //if theres no modal, then create and insert at the bottom of the body
             bd.insertAdjacentHTML('beforeend', html); 
         }
+
+        !bd.querySelector('.modal') ? "" : bd.querySelector('.modal').addEventListener('click', handleClickOutside);
 
         prevButton = bd.querySelector('.prev');
         nextButton = bd.querySelector('.next');
@@ -79,6 +80,9 @@ function Gallery(gallery){
     }
 
     function openModal(){
+        
+        //if( bd.querySelector('.modal').matches('.open') ) return;
+
         //warn the body that the modal is open
         bd.classList.add('modal-is-open');
         
@@ -90,12 +94,13 @@ function Gallery(gallery){
 
     }
 
-    function closeModal(e) {
+    function closeModal() {
+        //if so, remove the body class
+        bd.classList.remove('moda-is-open');
+
         //check if there's a modal opened
         let isModalOpen = bd.matches('.modal-is-open');
         if( isModalOpen ) {
-             //if so, remove the body class
-            bd.classList.remove('moda-is-open');
             //close the modal
             bd.querySelector('.modal').classList.remove('open');
         }
@@ -127,12 +132,13 @@ function Gallery(gallery){
         if( e.key === 'ArrowLeft' ) return showPrevImage();
     }
 
+    function handleClickOutside(e){
+        if( e.target === e.currentTarget ) closeModal();
+    }
+
     //click on every image
     images.forEach(image => image.addEventListener('click', e => showImage(e.currentTarget)));
-    images.forEach(image => image.addEventListener('keyup', e => handleKeyEvents(e)));
-
-    //close modal by clicking on it
-    bd.addEventListener('click', e => closeModal(e) );
+    images.forEach(image => image.addEventListener('keyup', e => handleKeyEvents(e)));    
     
 }
 
