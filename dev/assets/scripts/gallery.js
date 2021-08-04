@@ -80,9 +80,6 @@ function Gallery(gallery){
     }
 
     function openModal(){
-        
-        //if( bd.querySelector('.modal').matches('.open') ) return;
-
         //warn the body that the modal is open
         bd.classList.add('modal-is-open');
         
@@ -95,12 +92,12 @@ function Gallery(gallery){
     }
 
     function closeModal() {
-        //if so, remove the body class
-        bd.classList.remove('moda-is-open');
-
         //check if there's a modal opened
         let isModalOpen = bd.matches('.modal-is-open');
         if( isModalOpen ) {
+            //if so, remove the body class
+            bd.classList.remove('modal-is-open');
+            
             //close the modal
             bd.querySelector('.modal').classList.remove('open');
         }
